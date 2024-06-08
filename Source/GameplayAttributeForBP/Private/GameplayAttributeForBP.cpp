@@ -1,7 +1,8 @@
 // Copyright Metaseven All Rights Reserved.
 
 #include "GameplayAttributeForBP.h"
-#include "Blutility/Classes/EditorUtilityBlueprint.h"
+#include "AssetRegistry/IAssetRegistry.h"
+#include "EditorUtilityBlueprint.h"
 #include "EditorUtilitySubsystem.h"
 
 #define LOCTEXT_NAMESPACE "FGameplayAttributeForBPModule"
