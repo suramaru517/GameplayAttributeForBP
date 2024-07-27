@@ -3,22 +3,25 @@
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "GameplayAttributeForBP",
-	"Description": "",
-	"Category": "Other",
-	"CreatedBy": "",
-	"CreatedByURL": "",
-	"DocsURL": "",
+	"Description": "Forces activation of Gameplay Attributes defined in Blueprints.",
+	"Category": "Gameplay",
+	"CreatedBy": "Metaseven",
+	"CreatedByURL": "https://twitter.com/suramaru517",
+	"DocsURL": "https://github.com/suramaru517/GameplayAttributeForBP",
 	"MarketplaceURL": "",
 	"SupportURL": "",
 	"CanContainContent": true,
 	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
+	"IsExperimentalVersion": true,
 	"Installed": false,
 	"Modules": [
 		{
 			"Name": "GameplayAttributeForBP",
 			"Type": "Editor",
-			"LoadingPhase": "PostEngineInit"
+			"LoadingPhase": "PostEngineInit",
+			"PlatformAllowList": [
+				"Win64"
+			]
 		}
 	],
 	"Plugins": [

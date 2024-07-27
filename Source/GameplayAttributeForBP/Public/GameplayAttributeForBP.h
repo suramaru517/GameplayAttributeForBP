@@ -1,11 +1,11 @@
-// Copyright Metaseven All Rights Reserved.
+// Copyright 2023-2024 Metaseven. All Rights Reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
-class GAMEPLAYATTRIBUTEFORBP_API FGameplayAttributeForBPModule : public IModuleInterface
+class FGameplayAttributeForBPModule : public IModuleInterface
 {
 public:
 	virtual void StartupModule() override;

@@ -1,3 +1,4 @@
 # GameplayAttributeForBP
 
-* [【UE5】GameplayAttributeをBPのみで定義する - Qiita](https://qiita.com/suramaru517/items/e7f7af8e4cd971bc8672)
+![image](https://github.com/user-attachments/assets/897e72a3-3bd7-4752-8254-7a45df5c5554)
+![image](https://github.com/user-attachments/assets/d8e1f7c3-b266-4b22-b29f-7bfa501aae96)

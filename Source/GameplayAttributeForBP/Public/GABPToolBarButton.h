@@ -1,9 +1,10 @@
-// Copyright Metaseven All Rights Reserved.
+// Copyright 2023-2024 Metaseven. All Rights Reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "EditorUtilityToolMenu.h"
+#include "Templates/SubclassOf.h"
 #include "GABPToolBarButton.generated.h"
 
 UCLASS()

@@ -1,8 +1,11 @@
-// Copyright Metaseven All Rights Reserved.
+// Copyright 2023-2024 Metaseven. All Rights Reserved.
 
 #include "GameplayAttributeForBP.h"
-#include "Blutility/Classes/EditorUtilityBlueprint.h"
+#include "AssetRegistry/IAssetRegistry.h"
+#include "Editor.h"
+#include "EditorUtilityBlueprint.h"
 #include "EditorUtilitySubsystem.h"
+#include "ToolMenus.h"
 
 #define LOCTEXT_NAMESPACE "FGameplayAttributeForBPModule"
 
@@ -36,5 +39,5 @@ void FGameplayAttributeForBPModule::RunEditorUtilityBlueprints()
 }
 
 #undef LOCTEXT_NAMESPACE
-	
+
 IMPLEMENT_MODULE(FGameplayAttributeForBPModule, GameplayAttributeForBP)

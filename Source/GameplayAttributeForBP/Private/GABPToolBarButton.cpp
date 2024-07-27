@@ -1,8 +1,10 @@
-// Copyright Metaseven All Rights Reserved.
+// Copyright 2023-2024 Metaseven. All Rights Reserved.
 
 #include "GABPToolBarButton.h"
+#include "AssetRegistry/AssetData.h"
 #include "AssetRegistry/IAssetRegistry.h"
 #include "AttributeSet.h"
+#include "Engine/Blueprint.h"
 
 UGABPToolBarButton::UGABPToolBarButton()
 {
@@ -22,23 +24,23 @@ ECheckBoxState UGABPToolBarButton::GetCheckState_Implementation(const FToolMenuC
 	return bIsActivated ? ECheckBoxState::Checked : ECheckBoxState::Unchecked;
 }
 
-// GABPボタンが押された時
+// When GABP button is pressed
 void UGABPToolBarButton::ToggleActivation()
 {
-	// FARFilter を設定
+	// Set ARFilter
 	FARFilter ARFilter;
 	ARFilter.PackagePaths.Add(FName(TEXT("/GameplayAttributeForBP/AttributeSets")));
 	ARFilter.ClassPaths.Add(UBlueprint::StaticClass()->GetClassPathName());
 	ARFilter.bRecursivePaths = true;
 	ARFilter.bRecursiveClasses = true;
-	
-	// BPをロード
+
+	// Load Blueprints
 	TArray<FAssetData> Assets;
 	IAssetRegistry::Get()->GetAssets(ARFilter, Assets);
 
 	TArray<TSubclassOf<UObject>> AttributeSetClasses;
-	
-	// UAttributeSet の子BPクラスを収集
+
+	// Collect child Blueprint classes of UAttributeSet
 	for (const FAssetData& Asset : Assets)
 	{
 		const UBlueprint* Blueprint = Cast<UBlueprint>(Asset.GetAsset());
@@ -53,10 +55,10 @@ void UGABPToolBarButton::ToggleActivation()
 	bIsActivated ? Deactivate(AttributeSetClasses) : Activate(AttributeSetClasses);
 }
 
-// GABPボタンがオンになった時
+// When GABP button is turned on
 void UGABPToolBarButton::Activate(const TArray<TSubclassOf<UObject>>& AttributeSetClasses)
 {
-	// C++クラスに偽装
+	// Disguise as a C++ class
 	for (const TSubclassOf<UObject>& AttributeSetClass : AttributeSetClasses)
 	{
 		ClassGeneratedBys.Emplace(AttributeSetClass, AttributeSetClass->ClassGeneratedBy);
@@ -67,10 +69,10 @@ void UGABPToolBarButton::Activate(const TArray<TSubclassOf<UObject>>& AttributeS
 	Data.Icon = ActiveIcon;
 }
 
-// GABPボタンがオフになった時
+// When GABP button is turned off
 void UGABPToolBarButton::Deactivate(const TArray<TSubclassOf<UObject>>& AttributeSetClasses)
 {
-	// C++クラスの偽装を解除
+	// Remove C++ class disguise
 	for (const TSubclassOf<UObject>& AttributeSetClass : AttributeSetClasses)
 	{
 		UObject** ClassGeneratedBy = ClassGeneratedBys.Find(AttributeSetClass);
